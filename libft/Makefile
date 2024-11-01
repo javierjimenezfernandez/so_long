@@ -6,7 +6,7 @@
 #    By: javjimen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/21 23:33:59 by javjimen          #+#    #+#              #
-#    Updated: 2024/02/22 12:44:21 by javjimen         ###   ########.fr        #
+#    Updated: 2024/11/01 15:19:11 by javjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ NAME		= libft.a
 # Library components directories
 LIBFT_DIR	= libft/
 PRINTF_DIR	= ft_printf/
+GNL_DIR		= get_next_line/
 
 # List of source files
 SRC_DIR		= src/
@@ -74,8 +75,12 @@ PRINTF_SRC	= $(addprefix $(PRINTF_DIR), ft_printf.c \
 										ft_printf_hexa.c \
 										ft_printf_percent.c)
 
+GNL_SRC		= $(addprefix $(GNL_DIR), get_next_line.c \
+										get_next_line_utils.c)
+
 SRC			= $(addprefix $(SRC_DIR), $(LIBFT_SRC) \
-									  $(PRINTF_SRC))
+									  $(PRINTF_SRC) \
+									  $(GNL_SRC))
 
 # List of object files
 OBJ_DIR		= obj/
@@ -86,7 +91,8 @@ OBJ			= $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 INC_DIR		= includes/
 
 INCLUDES	= $(addprefix $(INC_DIR), libft.h \
-									  ft_printf.h)
+									  ft_printf.h \
+									  get_next_line.h)
 
 # Compilation flags
 CC			= cc
