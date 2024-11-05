@@ -19,7 +19,7 @@ UNAME		= $(shell uname)
 
 
 # Dependancies
-INCLUDES	= -I includes -I libft/includes
+INCLUDES	= -Iincludes -Ilibft/includes
 ifeq ($(shell uname), Linux)
 	INCLUDES += -I/usr/include -Imlx
 else
@@ -97,5 +97,5 @@ fclean:		clean
 
 re:			fclean all
 
-sanitize:	$(LIBFT) $(OBJ) $(INC)
+sanitize:	$(LIBFT) $(MLX_LIB) $(OBJ) $(INC)
 			$(CC) $(SANITIZE) $(OBJ) -o $(NAME) $(LIBFT) $(MLX_FLAGS)
