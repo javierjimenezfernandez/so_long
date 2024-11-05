@@ -1,38 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 20:03:00 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/05 20:32:48 by javjimen         ###   ########.fr       */
+/*   Created: 2024/11/05 19:14:54 by javjimen          #+#    #+#             */
+/*   Updated: 2024/11/05 21:58:21 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+int	is_map_valid(char **map)
 {
-	char	**map;
-
-	if (argc != 2)
-		error_handler(wrong_usage);
-	if (is_file_name_valid(argv[1]))
-		map = parse_map(argv[1]);
-	else
-	{
-		error_handler(map_name_error);
+	if (are_all_tiles_valid(map) && are_dimensions_valid(map))
 		return (1);
-	}
-	if (is_map_valid(map))
-		print_map(map);
 	else
-	{
-		free_map(map);
-		error_handler(invalid_map);
-		return (1);
-	}
-	free_map(map);
-	return (0);
+		return (0);
 }

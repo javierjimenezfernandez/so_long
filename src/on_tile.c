@@ -1,38 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   on_tile.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 20:03:00 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/05 20:32:48 by javjimen         ###   ########.fr       */
+/*   Created: 2024/11/05 19:00:51 by javjimen          #+#    #+#             */
+/*   Updated: 2024/11/05 21:47:57 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+int	on_empty(char c)
 {
-	char	**map;
+	if (c == '0')
+		return (1);
+	else
+		return (0);
+}
 
-	if (argc != 2)
-		error_handler(wrong_usage);
-	if (is_file_name_valid(argv[1]))
-		map = parse_map(argv[1]);
-	else
-	{
-		error_handler(map_name_error);
+int	on_wall(char c)
+{
+	if (c == '1')
 		return (1);
-	}
-	if (is_map_valid(map))
-		print_map(map);
 	else
-	{
-		free_map(map);
-		error_handler(invalid_map);
+		return (0);
+}
+
+int	on_collectable(char c)
+{
+	if (c == 'C')
 		return (1);
-	}
-	free_map(map);
-	return (0);
+	else
+		return (0);
+}
+
+int	on_exit_tile(char c)
+{
+	if (c == 'E')
+		return (1);
+	else
+		return (0);
+}
+
+int	on_initial_position(char c)
+{
+	if (c == 'P')
+		return (1);
+	else
+		return (0);
 }

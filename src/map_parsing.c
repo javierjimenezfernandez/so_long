@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 20:03:00 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/05 20:32:48 by javjimen         ###   ########.fr       */
+/*   Created: 2024/10/31 21:02:14 by javjimen          #+#    #+#             */
+/*   Updated: 2024/11/05 21:29:01 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+char	**parse_map(char *file_name)
 {
+	size_t	i;
+	int		fd;
+	char	*new_line;
 	char	**map;
 
-	if (argc != 2)
-		error_handler(wrong_usage);
-	if (is_file_name_valid(argv[1]))
-		map = parse_map(argv[1]);
-	else
+	map = (char **)malloc((count_file_lines(file_name) + 1) * sizeof(char *));
+	if (!map)
+		error_handler(malloc_error);
+	fd = open(file_name, O_RDONLY);
+	if (fd == -1)
 	{
-		error_handler(map_name_error);
-		return (1);
+		free(map);
+		error_handler(open_file_error);
 	}
-	if (is_map_valid(map))
-		print_map(map);
-	else
+	new_line = get_next_line(fd);
+	i = 0;
+	while (new_line)
 	{
-		free_map(map);
-		error_handler(invalid_map);
-		return (1);
+		map[i] = new_line;
+		new_line = get_next_line(fd);
+		i++;
 	}
-	free_map(map);
-	return (0);
+	close(fd);
+	map[i] = NULL;
+	return (map);
 }

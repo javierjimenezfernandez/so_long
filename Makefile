@@ -6,7 +6,7 @@
 #    By: javjimen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/31 20:31:03 by javjimen          #+#    #+#              #
-#    Updated: 2024/10/31 20:47:17 by javjimen         ###   ########.fr        #
+#    Updated: 2024/11/05 21:12:25 by javjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,16 @@ MLX_LIB		= $(MLX_DIR)/libmlx_$(UNAME).a
 
 # List of source files
 SRC_DIR		= src/
-SRC			= $(addprefix $(SRC_DIR), main.c)
+SRC			= $(addprefix $(SRC_DIR), main.c \
+									  error_handler.c \
+									  file_utils.c \
+									  map_parsing.c \
+									  print_map.c \
+									  free_map.c \
+									  on_tile.c \
+									  tile_validation.c \
+									  size_validation.c \
+									  map_validation.c)
 
 
 # List of object files

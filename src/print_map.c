@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 20:03:00 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/05 20:32:48 by javjimen         ###   ########.fr       */
+/*   Created: 2024/11/04 10:35:13 by javjimen          #+#    #+#             */
+/*   Updated: 2024/11/04 11:12:48 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	print_map(char **map)
 {
-	char	**map;
+	int	i;
 
-	if (argc != 2)
-		error_handler(wrong_usage);
-	if (is_file_name_valid(argv[1]))
-		map = parse_map(argv[1]);
-	else
+	i = 0;
+	while (map[i] != NULL)
 	{
-		error_handler(map_name_error);
-		return (1);
+		ft_printf(map[i]);
+		i++;
 	}
-	if (is_map_valid(map))
-		print_map(map);
-	else
-	{
-		free_map(map);
-		error_handler(invalid_map);
-		return (1);
-	}
-	free_map(map);
-	return (0);
 }
