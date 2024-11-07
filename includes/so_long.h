@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/05 21:58:21 by javjimen         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:40:00 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		on_empty(char c);
 int		on_wall(char c);
 int		on_collectable(char c);
 int		on_exit_tile(char c);
-int		on_initial_position(char c);
+int		on_player(char c);
 
 /* ****************** */
 /*        MAP         */
@@ -66,7 +66,7 @@ char	**parse_map(char *file_name);
 /* tile_validation  */
 int		is_tile_valid(char c);
 int		is_row_valid(char *row, int *coll_count, int *exit_count, \
-						int *char_count);
+						int *plyr_count);
 int		are_all_tiles_valid(char **map);
 
 /*  size_validation   */

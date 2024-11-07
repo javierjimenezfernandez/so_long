@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:00:51 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/05 21:47:57 by javjimen         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:38:17 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	on_exit_tile(char c)
 		return (0);
 }
 
-int	on_initial_position(char c)
+int	on_player(char c)
 {
 	if (c == 'P')
 		return (1);
