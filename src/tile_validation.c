@@ -6,19 +6,19 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:56:27 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/07 17:57:25 by javjimen         ###   ########.fr       */
+/*   Updated: 2024/11/07 19:50:04 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	is_tile_valid(char c)
+int	is_tile_valid(char tile)
 {
-	if (on_empty(c) \
-		|| on_wall(c) \
-		|| on_collectable(c) \
-		|| on_exit_tile(c) \
-		|| on_player(c))
+	if (on_empty(tile) \
+		|| on_wall(tile) \
+		|| on_collectable(tile) \
+		|| on_exit_tile(tile) \
+		|| on_player(tile))
 		return (1);
 	else
 		return (0);

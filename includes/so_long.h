@@ -60,11 +60,11 @@ void	print_map(char **map);
 void	free_map(char **map);
 
 /*     on_tile      */
-int		on_empty(char c);
-int		on_wall(char c);
-int		on_collectable(char c);
-int		on_exit_tile(char c);
-int		on_player(char c);
+int		on_empty(char tile);
+int		on_wall(char tile);
+int		on_collectable(char tile);
+int		on_exit_tile(char tile);
+int		on_player(char tile);
 
 /* ****************** */
 /*        MAP         */
@@ -74,7 +74,7 @@ int		on_player(char c);
 char	**parse_map(char *file_name);
 
 /* tile_validation  */
-int		is_tile_valid(char c);
+int		is_tile_valid(char tile);
 int		is_row_valid(char *row, int *coll_count, int *exit_count, \
 						int *plyr_count);
 int		are_all_tiles_valid(char **map);
