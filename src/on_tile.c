@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:00:51 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/07 17:38:17 by javjimen         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:53:11 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	on_empty(char c)
 {
-	if (c == '0')
+	if (c == empty)
 		return (1);
 	else
 		return (0);
@@ -22,7 +22,7 @@ int	on_empty(char c)
 
 int	on_wall(char c)
 {
-	if (c == '1')
+	if (c == wall)
 		return (1);
 	else
 		return (0);
@@ -30,7 +30,7 @@ int	on_wall(char c)
 
 int	on_collectable(char c)
 {
-	if (c == 'C')
+	if (c == collectable)
 		return (1);
 	else
 		return (0);
@@ -38,7 +38,7 @@ int	on_collectable(char c)
 
 int	on_exit_tile(char c)
 {
-	if (c == 'E')
+	if (c == exit_tile)
 		return (1);
 	else
 		return (0);
@@ -46,7 +46,7 @@ int	on_exit_tile(char c)
 
 int	on_player(char c)
 {
-	if (c == 'P')
+	if (c == player)
 		return (1);
 	else
 		return (0);

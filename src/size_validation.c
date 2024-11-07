@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:08:57 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/05 21:09:24 by javjimen         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:57:16 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	row_len(char *row)
 	size_t	len;
 
 	len = 0;
-	while (row[len] != '\n')
+	while (row[len] != row_end)
 	{
 		len++;
 	}
@@ -31,7 +31,7 @@ size_t	count_map_rows(char **map)
 	row_count = 0;
 	while (map[row_count] != NULL)
 		row_count++;
-	if (map[row_count - 1][0] == '\n')
+	if (map[row_count - 1][0] == row_end)
 		row_count--;
 	return (row_count);
 }

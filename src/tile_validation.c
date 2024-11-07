@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:56:27 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/07 17:38:12 by javjimen         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:57:25 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	is_row_valid(char *row, int *coll_count, int *exit_count, int *plyr_count)
 	size_t	i;
 
 	i = 0;
-	while (row[i] != '\n')
+	while (row[i] != row_end)
 	{
 		if (is_tile_valid(row[i]))
 		{

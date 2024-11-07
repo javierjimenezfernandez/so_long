@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/07 17:40:00 by javjimen         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:55:41 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ typedef enum e_error_type
 	malloc_error,
 	invalid_map
 }		t_error_type;
+
+typedef enum e_tile_type
+{
+	empty = '0',
+	wall = '1',
+	collectable = 'C',
+	exit_tile = 'E',
+	player = 'P',
+	row_end = '\n'
+}		t_tile_type;
 
 /* ****************** */
 /*       UTILS        */
