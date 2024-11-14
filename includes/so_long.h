@@ -48,19 +48,31 @@ typedef struct s_coord
 	int	y;
 }		t_coord;
 
-/* ****************** */
-/*       UTILS        */
-/* ****************** */
+/* *************************************************** */
+/*                                                     */
+/*     ERROR HANDLER                                   */
+/*                                                     */
+/* *************************************************** */
 
 /*   error_handler    */
 void	error_handler(t_error_type error_type);
+
+/* *************************************************** */
+/*                                                     */
+/*     INPUT CONTROL                                   */
+/*                                                     */
+/* *************************************************** */
+
+/* ****************** */
+/*     FILE UTILS     */
+/* ****************** */
 
 /*     file_utils     */
 int		is_file_name_valid(char *file_name);
 size_t	count_file_lines(char *file_name);
 
 /* ****************** */
-/*        MAP         */
+/*     MAP UTILS      */
 /* ****************** */
 
 /*    map_parsing     */
@@ -85,6 +97,10 @@ int		on_wall(char tile);
 int		on_collectable(char tile);
 int		on_exit_tile(char tile);
 int		on_player(char tile);
+
+/* ****************** */
+/*   MAP VALIDATION   */
+/* ****************** */
 
 /* tile_validation  */
 int		is_tile_valid(char tile);

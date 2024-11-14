@@ -6,7 +6,7 @@
 #    By: javjimen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/31 20:31:03 by javjimen          #+#    #+#              #
-#    Updated: 2024/11/07 19:15:39 by javjimen         ###   ########.fr        #
+#    Updated: 2024/11/14 13:47:59 by javjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,18 +35,18 @@ MLX_LIB		= $(MLX_DIR)/libmlx_$(UNAME).a
 # List of source files
 SRC_DIR		= src/
 SRC			= $(addprefix $(SRC_DIR), main.c \
-									  error_handler.c \
-									  file_utils.c \
-									  map_parsing.c \
-									  map_utils.c \
-									  print_map.c \
-									  free_map.c \
-									  on_tile.c \
-									  tile_validation.c \
-									  size_validation.c \
-									  walls_validation.c \
-									  resolvable_validation.c \
-									  map_validation.c)
+									  error_handler/error_handler.c \
+									  input_control/file_utils/file_utils.c \
+									  input_control/map_utils/map_parsing.c \
+									  input_control/map_utils/map_utils.c \
+									  input_control/map_utils/print_map.c \
+									  input_control/map_utils/free_map.c \
+									  input_control/map_utils/on_tile.c \
+									  input_control/map_validation/tile_validation.c \
+									  input_control/map_validation/size_validation.c \
+									  input_control/map_validation/walls_validation.c \
+									  input_control/map_validation/resolvable_validation.c \
+									  input_control/map_validation/map_validation.c)
 
 
 # List of object files
