@@ -6,35 +6,11 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:08:57 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/07 17:57:16 by javjimen         ###   ########.fr       */
+/*   Updated: 2024/11/07 19:14:25 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-size_t	row_len(char *row)
-{
-	size_t	len;
-
-	len = 0;
-	while (row[len] != row_end)
-	{
-		len++;
-	}
-	return (len);
-}
-
-size_t	count_map_rows(char **map)
-{
-	size_t	row_count;
-
-	row_count = 0;
-	while (map[row_count] != NULL)
-		row_count++;
-	if (map[row_count - 1][0] == row_end)
-		row_count--;
-	return (row_count);
-}
 
 int	are_all_rows_equal_len(char **map)
 {

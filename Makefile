@@ -6,7 +6,7 @@
 #    By: javjimen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/31 20:31:03 by javjimen          #+#    #+#              #
-#    Updated: 2024/11/05 21:12:25 by javjimen         ###   ########.fr        #
+#    Updated: 2024/11/07 19:15:39 by javjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,11 +38,14 @@ SRC			= $(addprefix $(SRC_DIR), main.c \
 									  error_handler.c \
 									  file_utils.c \
 									  map_parsing.c \
+									  map_utils.c \
 									  print_map.c \
 									  free_map.c \
 									  on_tile.c \
 									  tile_validation.c \
 									  size_validation.c \
+									  walls_validation.c \
+									  resolvable_validation.c \
 									  map_validation.c)
 
 
