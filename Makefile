@@ -6,7 +6,7 @@
 #    By: javjimen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/31 20:31:03 by javjimen          #+#    #+#              #
-#    Updated: 2024/11/14 13:47:59 by javjimen         ###   ########.fr        #
+#    Updated: 2024/12/18 21:13:29 by javjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,11 @@ SRC			= $(addprefix $(SRC_DIR), main.c \
 									  input_control/map_validation/size_validation.c \
 									  input_control/map_validation/walls_validation.c \
 									  input_control/map_validation/resolvable_validation.c \
-									  input_control/map_validation/map_validation.c)
+									  input_control/map_validation/map_validation.c \
+									  game/start_game.c \
+									  game/graphics/graphics_init.c \
+									  game/graphics/load_textures.c \
+									  game/graphics/render_textures.c)
 
 
 # List of object files

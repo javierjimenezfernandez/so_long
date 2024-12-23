@@ -6,20 +6,24 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:35:13 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/04 11:12:48 by javjimen         ###   ########.fr       */
+/*   Updated: 2024/12/18 21:35:01 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	print_map(char **map)
+/* implement printf error handling */
+
+int	print_map(char **map)
 {
 	int	i;
 
 	i = 0;
 	while (map[i] != NULL)
 	{
-		ft_printf(map[i]);
+		if (ft_printf(map[i]) == -1)
+			return (-1);
 		i++;
 	}
+	return (0);
 }

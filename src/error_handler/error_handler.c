@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 21:07:16 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/05 18:56:58 by javjimen         ###   ########.fr       */
+/*   Updated: 2024/12/18 21:23:02 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,11 @@ void	error_handler(t_error_type error_type)
 		ft_putstr_fd("Malloc error.\n", 2);
 	if (error_type == invalid_map)
 		ft_putstr_fd("Invalid map. Check map requirements in subject.\n", 2);
+	if (error_type == mlx_error)
+		ft_putstr_fd("MLX graphics failed.\n", 2);
+	if (error_type == open_asset_file_error)
+		ft_putstr_fd("Could not open assets_file_list.txt.\n", 2);
+	if (error_type == read_asset_file_error)
+		ft_putstr_fd("Could not read assets_file_list.txt.\n", 2);
 	exit(EXIT_FAILURE);
 }
