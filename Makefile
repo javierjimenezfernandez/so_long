@@ -6,7 +6,7 @@
 #    By: javjimen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/31 20:31:03 by javjimen          #+#    #+#              #
-#    Updated: 2024/12/18 21:13:29 by javjimen         ###   ########.fr        #
+#    Updated: 2024/12/29 20:30:29 by javjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,9 @@ SRC			= $(addprefix $(SRC_DIR), main.c \
 									  game/graphics/graphics_init.c \
 									  game/graphics/load_textures.c \
 									  game/graphics/render_textures.c \
-									  game/interface/hooks.c)
+									  game/interface/hooks.c \
+									  game/mechanics/game_mechanics.c \
+									  game/mechanics/movement.c)
 
 
 # List of object files

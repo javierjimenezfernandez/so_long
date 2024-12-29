@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:11:48 by javjimen          #+#    #+#             */
-/*   Updated: 2024/12/29 19:14:18 by javjimen         ###   ########.fr       */
+/*   Updated: 2024/12/29 20:23:27 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ int	on_keypress_hook(int keysym, t_mlx_data *mlx_data)
 {
 	(void)mlx_data;
 	ft_printf("Pressed key: %d\n", keysym);
+	game_mechanics(keysym, mlx_data);
+	render_textures(mlx_data);
 	return (0);
 }

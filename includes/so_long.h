@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2024/12/29 19:14:02 by javjimen         ###   ########.fr       */
+/*   Updated: 2024/12/29 20:16:36 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@
 # define GAME_NAME "SNORKY scape game"
 # define ASSETS_FILE_LIST "assets_file_list.txt"
 # define TILE_SIZE 32
+# define ESC_KEY 65307
+# define W_KEY 119
+# define A_KEY 97
+# define S_KEY 115
+# define D_KEY 100
+# define UP_KEY 65362
+# define LEFT_KEY 65361
+# define DOWN_KEY 65364
+# define RIGHT_KEY 65363
 
 typedef enum e_error_type
 {
@@ -189,5 +198,14 @@ int			on_keypress_hook(int keysym, t_mlx_data *mlx_data);
 /* ****************** */
 /*     MECHANICS      */
 /* ****************** */
+
+/*   game_mechanics   */
+int			is_movement_key(int keysym);
+void		game_mechanics(int keysym, t_mlx_data *mlx_data);
+
+/*      movement      */
+void		move_player(int keysym, t_coord player_coord, char **map);
+int			is_movement_valid(int keysym, t_coord player_coord, char **map);
+void		apply_movement(int keysym, t_mlx_data *mlx_data);
 
 #endif
