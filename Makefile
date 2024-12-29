@@ -50,7 +50,8 @@ SRC			= $(addprefix $(SRC_DIR), main.c \
 									  game/start_game.c \
 									  game/graphics/graphics_init.c \
 									  game/graphics/load_textures.c \
-									  game/graphics/render_textures.c)
+									  game/graphics/render_textures.c \
+									  game/interface/hooks.c)
 
 
 # List of object files

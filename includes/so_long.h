@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2024/12/23 13:46:50 by javjimen         ###   ########.fr       */
+/*   Updated: 2024/12/29 19:14:02 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,8 +165,6 @@ int			start_game(char **map);
 /* ****************** */
 
 /*   graphics_init    */
-int			on_graphics_close_hook(t_mlx_data *mlx_data);
-int			on_keypress_hook(int keysym, t_mlx_data *mlx_data);
 t_mlx_data	graphics_init(char **map);
 
 /*   load_textures    */
@@ -179,6 +177,14 @@ int			load_textures(t_mlx_data *mlx_data);
 /*  render_textures   */
 void		*switch_case_textures(t_mlx_data *mlx_data, int x, int y);
 void		render_textures(t_mlx_data *mlx_data);
+
+/* ****************** */
+/*     INTERFACE      */
+/* ****************** */
+
+/*       hooks        */
+int			on_graphics_close_hook(t_mlx_data *mlx_data);
+int			on_keypress_hook(int keysym, t_mlx_data *mlx_data);
 
 /* ****************** */
 /*     MECHANICS      */
