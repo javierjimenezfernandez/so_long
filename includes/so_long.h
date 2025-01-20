@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2024/12/29 20:16:36 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/01/20 22:02:22 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ typedef struct s_mlx_data
 	void	*win_ptr;
 	void	*textures[5];
 	char	**map;
+	int		mvmnt_count;
 }			t_mlx_data;
 
 /* *************************************************** */
@@ -174,6 +175,7 @@ int			start_game(char **map);
 /* ****************** */
 
 /*   graphics_init    */
+void		mlx_data_structure_init(t_mlx_data *mlx_data, char **map);
 t_mlx_data	graphics_init(char **map);
 
 /*   load_textures    */
@@ -204,6 +206,9 @@ int			is_movement_key(int keysym);
 void		game_mechanics(int keysym, t_mlx_data *mlx_data);
 
 /*      movement      */
+void		tile_interaction_msg(int is_movement_valid, t_tile_type new_tile, \
+									int coll_count);
+t_coord		movement_logic(int keysym, t_coord player_coord);
 void		move_player(int keysym, t_coord player_coord, char **map);
 int			is_movement_valid(int keysym, t_coord player_coord, char **map);
 void		apply_movement(int keysym, t_mlx_data *mlx_data);
