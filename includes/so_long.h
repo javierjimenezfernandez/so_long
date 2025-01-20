@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2025/01/20 22:02:22 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/01/20 22:13:49 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,8 +209,7 @@ void		game_mechanics(int keysym, t_mlx_data *mlx_data);
 void		tile_interaction_msg(int is_movement_valid, t_tile_type new_tile, \
 									int coll_count);
 t_coord		movement_logic(int keysym, t_coord player_coord);
-void		move_player(int keysym, t_coord player_coord, char **map);
-int			is_movement_valid(int keysym, t_coord player_coord, char **map);
+int			is_movement_valid(t_tile_type new_tile, int coll_count);
 void		apply_movement(int keysym, t_mlx_data *mlx_data);
 
 #endif
