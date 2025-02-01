@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 20:22:21 by javjimen          #+#    #+#             */
-/*   Updated: 2025/01/20 20:35:24 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/01 20:57:38 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	mlx_data_structure_init(t_mlx_data *mlx_data, char **map)
 	load_textures(mlx_data);
 	render_textures(mlx_data);
 	mlx_data->mvmnt_count = 0;
+	mlx_data->game_state = started;
 }
 
 t_mlx_data	graphics_init(char **map)

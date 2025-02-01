@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 14:12:17 by javjimen          #+#    #+#             */
-/*   Updated: 2025/01/20 22:11:26 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/01 20:58:31 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ void	apply_movement(int keysym, t_mlx_data *mlx_data)
 		(mlx_data->map)[player_coord.y][player_coord.x] = empty;
 		(mlx_data->mvmnt_count)++;
 		ft_printf("Movement number: %d\n", mlx_data->mvmnt_count);
+		if (on_exit_tile(new_tile))
+			mlx_data->game_state = win;
 	}
 	else
 		tile_interaction_msg(0, new_tile, coll_count);

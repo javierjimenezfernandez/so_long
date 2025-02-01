@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2025/01/20 22:13:49 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/01 21:13:20 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,15 @@ typedef enum e_texture_type
 	wall_tx,
 	collectable_tx,
 	exit_tile_tx,
-	player_tx,
+	player_tx
 }			t_texture_type;
+
+typedef enum e_game_state
+{
+	not_started,
+	started,
+	win
+}			t_game_state;
 
 typedef struct s_coord
 {
@@ -76,11 +83,12 @@ typedef struct s_coord
 
 typedef struct s_mlx_data
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	void	*textures[5];
-	char	**map;
-	int		mvmnt_count;
+	void			*mlx_ptr;
+	void			*win_ptr;
+	void			*textures[5];
+	char			**map;
+	int				mvmnt_count;
+	t_game_state	game_state;
 }			t_mlx_data;
 
 /* *************************************************** */
@@ -188,6 +196,7 @@ int			load_textures(t_mlx_data *mlx_data);
 /*  render_textures   */
 void		*switch_case_textures(t_mlx_data *mlx_data, int x, int y);
 void		render_textures(t_mlx_data *mlx_data);
+void		render_win_screen(t_mlx_data *mlx_data);
 
 /* ****************** */
 /*     INTERFACE      */

@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:56:24 by javjimen          #+#    #+#             */
-/*   Updated: 2025/01/20 21:52:18 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/01 21:32:16 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ int	is_movement_key(int keysym)
 
 void	game_mechanics(int keysym, t_mlx_data *mlx_data)
 {
-	if (keysym == ESC_KEY)
-		on_graphics_close_hook(mlx_data);
-	else if (is_movement_key(keysym))
+	if (is_movement_key(keysym))
 		apply_movement(keysym, mlx_data);
 	else
 		ft_printf("Not a valid key.\n");

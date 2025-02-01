@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:37:35 by javjimen          #+#    #+#             */
-/*   Updated: 2024/12/23 13:46:35 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/01 21:47:13 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,21 @@ void	render_textures(t_mlx_data *mlx_data)
 		}
 		y++;
 	}
+}
+
+void	render_win_screen(t_mlx_data *mlx_data)
+{
+	int		width;
+	int		height;
+	char	*file_name;
+	void	*win_screen;
+
+	file_name = "assets/win_screen/win_screen.xpm";
+	width = (row_len(*(mlx_data->map)) * TILE_SIZE) / 2;
+	height = (count_map_rows(mlx_data->map) * TILE_SIZE) / 2;
+	ft_printf("width = %d, height = %d\n", width, height);
+	win_screen = mlx_xpm_file_to_image(mlx_data->mlx_ptr, \
+			file_name, &width, &height);
+	mlx_put_image_to_window(mlx_data->mlx_ptr, mlx_data->win_ptr, \
+							win_screen, (width / 2), (height / 2));
 }
