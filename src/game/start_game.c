@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:08:13 by javjimen          #+#    #+#             */
-/*   Updated: 2024/12/18 21:34:23 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/01/20 21:57:31 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int	start_game(char **map)
 	mlx_data = graphics_init(map);
 	//graphics_init(map);
 	//mechanics_init();
-	render_textures(&mlx_data);
+	//render_textures(&mlx_data);
 	return (0);
 }
