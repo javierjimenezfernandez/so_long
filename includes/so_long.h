@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/01 21:13:20 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:40:42 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ typedef enum e_error_type
 	invalid_map,
 	mlx_error,
 	open_asset_file_error,
-	read_asset_file_error
+	read_asset_file_error,
+	open_current_asset_file_error
 }			t_error_type;
 
 typedef enum e_tile_type
@@ -99,6 +100,7 @@ typedef struct s_mlx_data
 
 /*   error_handler    */
 void		error_handler(t_error_type error_type);
+void		in_game_error_handler(t_error_type error_type, char *error_info);
 
 /* *************************************************** */
 /*                                                     */
@@ -189,6 +191,7 @@ t_mlx_data	graphics_init(char **map);
 /*   load_textures    */
 char		*get_asset_file_name(int fd);
 void		init_textures_to_null(t_mlx_data *mlx_data);
+void		check_asset_file(t_mlx_data *mlx_data, char *file_name);
 void		loop_on_texture_files(t_mlx_data *mlx_data, int fd, \
 								int *width, int *height);
 int			load_textures(t_mlx_data *mlx_data);

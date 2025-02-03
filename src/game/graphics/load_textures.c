@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:16:04 by javjimen          #+#    #+#             */
-/*   Updated: 2024/12/23 13:45:05 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:46:00 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,18 @@ void	init_textures_to_null(t_mlx_data *mlx_data)
 	}
 }
 
+void	check_asset_file(t_mlx_data *mlx_data, char *file_name)
+{
+	int	fd;
+
+	fd = open(file_name, O_RDONLY);
+	if (fd < 0)
+	{
+		in_game_error_handler(open_current_asset_file_error, file_name);
+		on_graphics_close_hook(mlx_data);
+	}
+}
+
 void	loop_on_texture_files(t_mlx_data *mlx_data, int fd, \
 								int *width, int *height)
 {
@@ -52,16 +64,17 @@ void	loop_on_texture_files(t_mlx_data *mlx_data, int fd, \
 		file_name = get_asset_file_name(fd);
 		if (!file_name)
 		{
+			in_game_error_handler(read_asset_file_error, ASSETS_FILE_LIST);
 			on_graphics_close_hook(mlx_data);
-			error_handler(read_asset_file_error);
 		}
+		check_asset_file(mlx_data, file_name);
 		mlx_data->textures[i] = mlx_xpm_file_to_image(mlx_data->mlx_ptr, \
 			file_name, width, height);
 		free(file_name);
 		if (!(mlx_data->textures[i]))
 		{
+			in_game_error_handler(mlx_error, "Texture missing");
 			on_graphics_close_hook(mlx_data);
-			error_handler(mlx_error);
 		}
 		i++;
 	}
@@ -77,8 +90,8 @@ int	load_textures(t_mlx_data *mlx_data)
 	fd = open(ASSETS_FILE_LIST, O_RDONLY);
 	if (fd == -1)
 	{
+		in_game_error_handler(open_asset_file_error, ASSETS_FILE_LIST);
 		on_graphics_close_hook(mlx_data);
-		error_handler(open_asset_file_error);
 	}
 	width = TILE_SIZE;
 	height = TILE_SIZE;
