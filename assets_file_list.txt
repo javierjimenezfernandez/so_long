@@ -1,5 +1,5 @@
 assets/water/water.xpm
 assets/wall/wall_simplified.xpm
-assets/collectable/fish-with_water.xpm
+assets/collectable/fish.xpm
 assets/exit/exit_simplified.xpm
-assets/snorky/Snorky-heading_left-with_water.xpm
+assets/snorky/Snorky.xpm
