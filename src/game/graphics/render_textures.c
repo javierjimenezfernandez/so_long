@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:37:35 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/03 20:55:49 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/03 21:20:39 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ void	render_win_screen(t_mlx_data *mlx_data)
 	int		width;
 	int		height;
 	char	*file_name;
-	void	*win_screen;
 
 	file_name = "assets/win_screen/win_screen.xpm";
 	width = 2.5 * TILE_SIZE;
 	height = 2 * TILE_SIZE;
-	win_screen = mlx_xpm_file_to_image(mlx_data->mlx_ptr, \
-			file_name, &width, &height);
+	mlx_data->textures[win_screen_tx] = \
+		mlx_xpm_file_to_image(mlx_data->mlx_ptr, file_name, &width, &height);
 	mlx_put_image_to_window(mlx_data->mlx_ptr, mlx_data->win_ptr, \
-		win_screen, (row_len(*(mlx_data->map)) * TILE_SIZE - width) / 2, \
+		mlx_data->textures[win_screen_tx], \
+		(row_len(*(mlx_data->map)) * TILE_SIZE - width) / 2, \
 		(count_map_rows(mlx_data->map) * TILE_SIZE - height) / 2);
 }

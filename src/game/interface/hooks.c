@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:11:48 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/03 20:56:08 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/03 21:15:30 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	on_graphics_close_hook(t_mlx_data *mlx_data)
 	int	i;
 
 	i = 0;
-	while ((i < 5) && (mlx_data->textures[i] != NULL))
+	while ((i <= win_screen_tx) && (mlx_data->textures[i] != NULL))
 	{
 		mlx_destroy_image(mlx_data->mlx_ptr, mlx_data->textures[i]);
 		i++;

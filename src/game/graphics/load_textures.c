@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:16:04 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/03 21:03:08 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/03 21:18:23 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	init_textures_to_null(t_mlx_data *mlx_data)
 	t_texture_type	i;
 
 	i = empty_tx;
-	while (i <= player_tx)
+	while (i <= win_screen_tx)
 	{
 		mlx_data->textures[i] = NULL;
 		i++;
