@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:16:04 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/03 20:46:00 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/03 21:03:08 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	check_asset_file(t_mlx_data *mlx_data, char *file_name)
 	if (fd < 0)
 	{
 		in_game_error_handler(open_current_asset_file_error, file_name);
+		free(file_name);
 		on_graphics_close_hook(mlx_data);
 	}
 }
