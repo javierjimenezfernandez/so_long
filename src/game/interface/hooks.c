@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:11:48 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/01 21:34:32 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:56:08 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	on_keypress_hook(int keysym, t_mlx_data *mlx_data)
 {
 	// ft_printf("Pressed key: %d\n", keysym);
 	if (keysym == ESC_KEY)
-			on_graphics_close_hook(mlx_data);
+		on_graphics_close_hook(mlx_data);
 	else
 	{
 		if (mlx_data->game_state != win)
