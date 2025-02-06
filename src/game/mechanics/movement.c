@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 14:12:17 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/01 20:58:31 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/06 23:12:25 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	tile_interaction_msg(int is_movement_valid, t_tile_type new_tile, \
 		if (on_collectable(new_tile))
 		{
 			ft_printf("Congratulations! You picked up a collectable!\n");
-			if (--coll_count)
+			if (coll_count)
 				ft_printf("There are still %d collectables.\n", coll_count);
 			else
 				ft_printf("Everything collected you can go to the exit.\n");
@@ -74,18 +74,21 @@ int	is_movement_valid(t_tile_type new_tile, int coll_count)
 void	apply_movement(int keysym, t_mlx_data *mlx_data)
 {
 	t_coord		player_coord;
-	int			coll_count;
 	t_coord		new_coord;
 	t_tile_type	new_tile;
 
 	player_coord = find_tile_coordinates(mlx_data->map, player);
-	coll_count = count_tiles_of_type(mlx_data->map, collectable);
 	new_coord = movement_logic(keysym, player_coord);
 	new_tile = (mlx_data->map)[new_coord.y][new_coord.x];
-	if (is_movement_valid(new_tile, coll_count))
+	if (is_movement_valid(new_tile, mlx_data->coll_count))
 	{
+		if (on_collectable(new_tile))
+		{
+			if (--(mlx_data->coll_count) == 0)
+				mlx_data->game_state = exit_open;
+		}
 		if (on_collectable(new_tile) || on_exit_tile(new_tile))
-			tile_interaction_msg(1, new_tile, coll_count);
+			tile_interaction_msg(1, new_tile, mlx_data->coll_count);
 		(mlx_data->map)[new_coord.y][new_coord.x] = player;
 		(mlx_data->map)[player_coord.y][player_coord.x] = empty;
 		(mlx_data->mvmnt_count)++;
@@ -94,5 +97,5 @@ void	apply_movement(int keysym, t_mlx_data *mlx_data)
 			mlx_data->game_state = win;
 	}
 	else
-		tile_interaction_msg(0, new_tile, coll_count);
+		tile_interaction_msg(0, new_tile, mlx_data->coll_count);
 }

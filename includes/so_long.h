@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/03 21:20:05 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/06 22:13:02 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ typedef enum e_texture_type
 	empty_tx,
 	wall_tx,
 	collectable_tx,
-	exit_tile_tx,
+	exit_closed_tx,
+	exit_open_tx,
 	player_tx,
 	win_screen_tx
 }			t_texture_type;
@@ -74,6 +75,7 @@ typedef enum e_game_state
 {
 	not_started,
 	started,
+	exit_open,
 	win
 }			t_game_state;
 
@@ -87,8 +89,9 @@ typedef struct s_mlx_data
 {
 	void			*mlx_ptr;
 	void			*win_ptr;
-	void			*textures[6];
+	void			*textures[7];
 	char			**map;
+	int				coll_count;
 	int				mvmnt_count;
 	t_game_state	game_state;
 }			t_mlx_data;

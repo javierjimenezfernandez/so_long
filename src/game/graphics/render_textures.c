@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:37:35 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/03 21:20:39 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/06 22:12:59 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ void	*switch_case_textures(t_mlx_data *mlx_data, int x, int y)
 	else if (mlx_data->map[y][x] == collectable)
 		return (mlx_data->textures[collectable_tx]);
 	else if (mlx_data->map[y][x] == exit_tile)
-		return (mlx_data->textures[exit_tile_tx]);
+	{
+		if (mlx_data->game_state == exit_open)
+			return (mlx_data->textures[exit_open_tx]);
+		else
+			return (mlx_data->textures[exit_closed_tx]);
+	}
 	else if (mlx_data->map[y][x] == player)
 		return (mlx_data->textures[player_tx]);
 	else

@@ -1,5 +1,6 @@
 assets/water/water.xpm
 assets/wall/sand.xpm
 assets/collectable/fish.xpm
-assets/exit/door-closed.xpm
+assets/exit/door-closed_green.xpm
+assets/exit/door-open_green.xpm
 assets/snorky/Snorky.xpm
