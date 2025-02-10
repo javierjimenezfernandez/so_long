@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 20:22:21 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/06 22:21:29 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/10 20:26:43 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	mlx_data_structure_init(t_mlx_data *mlx_data, char **map)
 		error_handler(mlx_error);
 	}
 	mlx_data->map = map;
-	load_textures(mlx_data);
-	render_textures(mlx_data);
 	mlx_data->coll_count = count_tiles_of_type(mlx_data->map, collectable);
 	mlx_data->mvmnt_count = 0;
 	mlx_data->game_state = started;
+	load_textures(mlx_data);
+	render_textures(mlx_data);
 }
 
 t_mlx_data	graphics_init(char **map)
