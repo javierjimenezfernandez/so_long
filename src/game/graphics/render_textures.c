@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:37:35 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/06 22:12:59 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:23:18 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void	render_textures(t_mlx_data *mlx_data)
 
 	x = 0;
 	y = 0;
-	while ((mlx_data->map[y] != NULL) && (mlx_data->map[y][0] != row_end))
+	while ((mlx_data->map[y] != NULL) && (mlx_data->map[y][0] != lf_char))
 	{
 		x = 0;
-		while (mlx_data->map[y][x] != row_end)
+		while (mlx_data->map[y][x] != lf_char)
 		{
 			texture = switch_case_textures(mlx_data, x, y);
 			mlx_put_image_to_window(mlx_data->mlx_ptr, mlx_data->win_ptr, \

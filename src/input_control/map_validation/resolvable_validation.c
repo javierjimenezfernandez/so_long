@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 12:49:27 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/07 21:45:29 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:23:18 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	are_collectables_reachable(char **map, char **map_filled_player)
 	while (map_filled_player[i] != NULL)
 	{
 		j = 0;
-		while (map_filled_player[i][j] != row_end)
+		while (map_filled_player[i][j] != lf_char)
 		{
 			if (map[i][j] == collectable && map_filled_player[i][j] == player)
 				coll_count++;
@@ -47,7 +47,7 @@ int	is_exit_reachable(char **map, char **map_filled_exit)
 	while (map_filled_exit[i] != NULL)
 	{
 		j = 0;
-		while (map_filled_exit[i][j] != row_end)
+		while (map_filled_exit[i][j] != lf_char)
 		{
 			if (map[i][j] == player && map_filled_exit[i][j] == exit_tile)
 				exit_count++;

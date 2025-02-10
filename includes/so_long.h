@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/06 22:13:02 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/10 20:12:42 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ typedef enum e_tile_type
 	collectable = 'C',
 	exit_tile = 'E',
 	player = 'P',
-	row_end = '\n'
+	lf_char = '\n',
+	null_char = '\0'
 }			t_tile_type;
 
 typedef enum e_texture_type
@@ -125,6 +126,7 @@ size_t		count_file_lines(char *file_name);
 /* ****************** */
 
 /*    map_parsing     */
+char		*parse_line(int fd);
 char		**parse_map(char *file_name);
 
 /*     map_utils      */

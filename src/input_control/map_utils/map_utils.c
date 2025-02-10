@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 19:13:50 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/07 20:24:43 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:23:18 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	row_len(char *row)
 	size_t	len;
 
 	len = 0;
-	while (row[len] != row_end)
+	while (row[len] != lf_char)
 	{
 		len++;
 	}
@@ -31,7 +31,7 @@ size_t	count_map_rows(char **map)
 	row_count = 0;
 	while (map[row_count] != NULL)
 		row_count++;
-	if (map[row_count - 1][0] == row_end)
+	if (map[row_count - 1][0] == lf_char)
 		row_count--;
 	return (row_count);
 }
@@ -48,7 +48,7 @@ char	**duplicate_map(char **map)
 		error_handler(malloc_error);
 	}
 	i = 0;
-	while (map[i] != NULL && map[i][0] != row_end)
+	while (map[i] != NULL && map[i][0] != lf_char)
 	{
 		map_dup[i] = ft_strdup(map[i]);
 		if (!map_dup[i])
@@ -71,7 +71,7 @@ t_coord	find_tile_coordinates(char **map, char tile)
 	while (map[coord.y] != NULL)
 	{
 		coord.x = 0;
-		while (map[coord.y][coord.x] != row_end)
+		while (map[coord.y][coord.x] != lf_char)
 		{
 			if (map[coord.y][coord.x] == tile)
 				return (coord);
@@ -95,7 +95,7 @@ int	count_tiles_of_type(char **map, char tile)
 	while (map[i] != NULL)
 	{
 		j = 0;
-		while (map[i][j] != row_end)
+		while (map[i][j] != lf_char)
 		{
 			if (map[i][j] == tile)
 				count++;

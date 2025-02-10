@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 12:49:27 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/07 17:56:12 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:23:18 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_horizontal_border_valid(char *row)
 {
-	while (*row != row_end)
+	while (*row != lf_char)
 	{
 		if (!on_wall(*row))
 			return (0);
@@ -27,7 +27,7 @@ int	is_row_surrounded_by_vertical_walls(char *row)
 {
 	if (!on_wall(*row))
 		return (0);
-	while (*row != row_end)
+	while (*row != lf_char)
 		row++;
 	row--;
 	if (!on_wall(*row))
