@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:00 by javjimen          #+#    #+#             */
-/*   Updated: 2024/12/01 20:29:15 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:10:10 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ int	main(int argc, char **argv)
 		error_handler(map_name_error);
 		return (1);
 	}
-	if (is_map_valid(map))
-		print_map(map);
-	else
+	if (!is_map_valid(map))
 	{
 		free_map(map);
 		error_handler(invalid_map);
