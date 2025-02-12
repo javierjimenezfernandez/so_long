@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/10 20:12:42 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:13:20 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,8 +191,7 @@ int			start_game(char **map);
 /* ****************** */
 
 /*   graphics_init    */
-void		mlx_data_structure_init(t_mlx_data *mlx_data, char **map);
-t_mlx_data	graphics_init(char **map);
+void		graphics_init(t_mlx_data *mlx_data, char **map);
 
 /*   load_textures    */
 char		*get_asset_file_name(int fd);
