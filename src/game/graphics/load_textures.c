@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:16:04 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/12 19:25:01 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:53:15 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	loop_on_texture_files(t_mlx_data *mlx_data, int fd, \
 		file_name = get_asset_file_name(fd);
 		if (!file_name)
 		{
-			in_game_error_handler(read_asset_file_error, ASSETS_FILE_LIST);
+			in_game_error_handler(read_asset_file_error, ASSETS_FILE_LIST_x32);
 			on_graphics_close_hook(mlx_data);
 		}
 		check_asset_file(mlx_data, file_name);
@@ -88,10 +88,10 @@ void	load_textures(t_mlx_data *mlx_data)
 	int	height;
 
 	init_textures_to_null(mlx_data);
-	fd = open(ASSETS_FILE_LIST, O_RDONLY);
+	fd = open(ASSETS_FILE_LIST_x32, O_RDONLY);
 	if (fd == -1)
 	{
-		in_game_error_handler(open_asset_file_error, ASSETS_FILE_LIST);
+		in_game_error_handler(open_asset_file_error, ASSETS_FILE_LIST_x32);
 		on_graphics_close_hook(mlx_data);
 	}
 	width = TILE_SIZE;

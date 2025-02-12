@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/12 19:34:02 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:56:20 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 # define MAP_FILE_EXT ".ber"
 # define GAME_NAME "SNORKY scape game"
-# define ASSETS_FILE_LIST "assets_file_list.txt"
+# define ASSETS_FILE_LIST_x32 "assets_file_list_x32.txt"
 # define TILE_SIZE 32
 # define ESC_KEY 65307
 # define W_KEY 119

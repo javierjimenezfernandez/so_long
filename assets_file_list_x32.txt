@@ -1,0 +1,6 @@
+assets/water/water_x32.xpm
+assets/wall/sand_x32.xpm
+assets/collectable/fish_x32.xpm
+assets/exit/door-closed_green_x32.xpm
+assets/exit/door-open_green_x32.xpm
+assets/snorky/Snorky_x32.xpm
