@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:16:04 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/03 21:18:23 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:25:01 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	loop_on_texture_files(t_mlx_data *mlx_data, int fd, \
 	}
 }
 
-int	load_textures(t_mlx_data *mlx_data)
+void	load_textures(t_mlx_data *mlx_data)
 {
 	int	fd;
 	int	width;
@@ -98,5 +98,4 @@ int	load_textures(t_mlx_data *mlx_data)
 	height = TILE_SIZE;
 	loop_on_texture_files(mlx_data, fd, &width, &height);
 	close(fd);
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/12 19:13:20 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:28:43 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,7 @@ int			is_map_valid(char **map);
 /* *************************************************** */
 
 /*     start_game     */
-int			start_game(char **map);
+void		start_game(char **map);
 
 /* ****************** */
 /*      GRAPHICS      */
@@ -199,7 +199,7 @@ void		init_textures_to_null(t_mlx_data *mlx_data);
 void		check_asset_file(t_mlx_data *mlx_data, char *file_name);
 void		loop_on_texture_files(t_mlx_data *mlx_data, int fd, \
 								int *width, int *height);
-int			load_textures(t_mlx_data *mlx_data);
+void		load_textures(t_mlx_data *mlx_data);
 
 /*  render_textures   */
 void		*switch_case_textures(t_mlx_data *mlx_data, int x, int y);
