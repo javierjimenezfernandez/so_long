@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 20:22:21 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/12 19:38:06 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:37:57 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	graphics_init(t_mlx_data *mlx_data, char **map)
 {
+	int	tile_size;
+
+	tile_size = select_tile_size(map);
 	mlx_data->mlx_ptr = mlx_init();
 	if (!mlx_data->mlx_ptr)
 	{
@@ -21,7 +24,7 @@ void	graphics_init(t_mlx_data *mlx_data, char **map)
 		error_handler(mlx_error);
 	}
 	mlx_data->win_ptr = mlx_new_window(mlx_data->mlx_ptr, \
-		row_len(*map) * TILE_SIZE, count_map_rows(map) * TILE_SIZE, GAME_NAME);
+		row_len(*map) * tile_size, count_map_rows(map) * tile_size, GAME_NAME);
 	if (!mlx_data->win_ptr)
 	{
 		free_map(map);

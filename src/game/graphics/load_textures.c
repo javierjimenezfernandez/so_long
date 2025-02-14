@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:16:04 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/12 19:53:15 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:03:58 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*get_asset_file_name(int fd)
 	char	*file_name;
 
 	file_name = get_next_line(fd);
+	if (!file_name)
+		return (NULL);
 	i = 0;
 	while (file_name[i] != '\0')
 	{
@@ -53,25 +55,30 @@ void	check_asset_file(t_mlx_data *mlx_data, char *file_name)
 	}
 }
 
-void	loop_on_texture_files(t_mlx_data *mlx_data, int fd, \
+void	loop_on_texture_files(t_mlx_data *mlx_data, t_file_data file_data, \
 								int *width, int *height)
 {
 	t_texture_type	i;
-	char			*file_name;
+	char			*assets_file_name;
 
 	i = empty_tx;
-	while (i <= player_tx)
+	while (i <= win_screen_tx)
 	{
-		file_name = get_asset_file_name(fd);
-		if (!file_name)
+		assets_file_name = get_asset_file_name(file_data.fd);
+		if (!assets_file_name)
 		{
-			in_game_error_handler(read_asset_file_error, ASSETS_FILE_LIST_x32);
+			in_game_error_handler(read_asset_file_error, file_data.name);
 			on_graphics_close_hook(mlx_data);
 		}
-		check_asset_file(mlx_data, file_name);
+		check_asset_file(mlx_data, assets_file_name);
+		if (i == win_screen_tx)
+		{
+			*width *= 2.5;
+			*height *= 2;
+		}
 		mlx_data->textures[i] = mlx_xpm_file_to_image(mlx_data->mlx_ptr, \
-			file_name, width, height);
-		free(file_name);
+			assets_file_name, width, height);
+		free(assets_file_name);
 		if (!(mlx_data->textures[i]))
 		{
 			in_game_error_handler(mlx_error, "Texture missing");
@@ -83,19 +90,25 @@ void	loop_on_texture_files(t_mlx_data *mlx_data, int fd, \
 
 void	load_textures(t_mlx_data *mlx_data)
 {
-	int	fd;
-	int	width;
-	int	height;
+	t_file_data	file_data;
+	int			tile_size;
+	int			width;
+	int			height;
 
 	init_textures_to_null(mlx_data);
-	fd = open(ASSETS_FILE_LIST_x32, O_RDONLY);
-	if (fd == -1)
+	tile_size = select_tile_size(mlx_data->map);
+	if (tile_size == 32)
+		file_data.name = ASSETS_FILE_LIST_X32;
+	else
+		file_data.name = ASSETS_FILE_LIST_X64;
+	file_data.fd = open(file_data.name, O_RDONLY);
+	if (file_data.fd == -1)
 	{
-		in_game_error_handler(open_asset_file_error, ASSETS_FILE_LIST_x32);
+		in_game_error_handler(open_asset_file_error, file_data.name);
 		on_graphics_close_hook(mlx_data);
 	}
-	width = TILE_SIZE;
-	height = TILE_SIZE;
-	loop_on_texture_files(mlx_data, fd, &width, &height);
-	close(fd);
+	width = tile_size;
+	height = tile_size;
+	loop_on_texture_files(mlx_data, file_data, &width, &height);
+	close(file_data.fd);
 }

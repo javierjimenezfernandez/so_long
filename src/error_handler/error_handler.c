@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 21:07:16 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/03 20:44:48 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:02:54 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	in_game_error_handler(t_error_type error_type, char *error_info)
 	else if (error_type == open_asset_file_error)
 		ft_putstr_fd("Could not open: ", 2);
 	else if (error_type == read_asset_file_error)
-		ft_putstr_fd("Could not read: ", 2);
+		ft_putstr_fd("Error while reading: ", 2);
 	else if (error_type == open_current_asset_file_error)
 		ft_putstr_fd("Could not open the asset file: ", 2);
 	ft_putstr_fd("\"", 2);

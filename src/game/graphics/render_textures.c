@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:37:35 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/12 19:58:19 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:38:16 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ void	render_textures(t_mlx_data *mlx_data)
 {
 	int		x;
 	int		y;
+	int		tile_size;
 	void	*texture;
 
 	x = 0;
 	y = 0;
+	tile_size = select_tile_size(mlx_data->map);
 	while ((mlx_data->map[y] != NULL) && (mlx_data->map[y][0] != lf_char))
 	{
 		x = 0;
@@ -48,7 +50,7 @@ void	render_textures(t_mlx_data *mlx_data)
 		{
 			texture = switch_case_textures(mlx_data, x, y);
 			mlx_put_image_to_window(mlx_data->mlx_ptr, mlx_data->win_ptr, \
-									texture, x * TILE_SIZE, y * TILE_SIZE);
+									texture, x * tile_size, y * tile_size);
 			x++;
 		}
 		y++;
@@ -57,17 +59,16 @@ void	render_textures(t_mlx_data *mlx_data)
 
 void	render_win_screen(t_mlx_data *mlx_data)
 {
+	int		tile_size;
 	int		width;
 	int		height;
 	char	*file_name;
 
-	file_name = "assets/win_screen/win_screen_x32.xpm";
-	width = 2.5 * TILE_SIZE;
-	height = 2 * TILE_SIZE;
-	mlx_data->textures[win_screen_tx] = \
-		mlx_xpm_file_to_image(mlx_data->mlx_ptr, file_name, &width, &height);
+	tile_size = select_tile_size(mlx_data->map);
+	width = 2.5 * tile_size;
+	height = 2 * tile_size;
 	mlx_put_image_to_window(mlx_data->mlx_ptr, mlx_data->win_ptr, \
 		mlx_data->textures[win_screen_tx], \
-		(row_len(*(mlx_data->map)) * TILE_SIZE - width) / 2, \
-		(count_map_rows(mlx_data->map) * TILE_SIZE - height) / 2);
+		(row_len(*(mlx_data->map)) * tile_size - width) / 2, \
+		(count_map_rows(mlx_data->map) * tile_size - height) / 2);
 }

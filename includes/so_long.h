@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/12 19:56:20 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:57:32 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@
 
 # define MAP_FILE_EXT ".ber"
 # define GAME_NAME "SNORKY scape game"
-# define ASSETS_FILE_LIST_x32 "assets_file_list_x32.txt"
+# define ASSETS_FILE_LIST_X32 "assets_file_list_x32.txt"
+# define ASSETS_FILE_LIST_X64 "assets_file_list_x64.txt"
+# define SCREEN_RES_WIDTH 3840
+# define SCREEN_RES_HEIGHT 2160
 # define TILE_SIZE 32
 # define ESC_KEY 65307
 # define W_KEY 119
@@ -96,6 +99,12 @@ typedef struct s_mlx_data
 	int				mvmnt_count;
 	t_game_state	game_state;
 }		t_mlx_data;
+
+typedef struct s_file_data
+{
+	char	*name;
+	int		fd;
+}		t_file_data;
 
 /* *************************************************** */
 /*                                                     */
@@ -197,7 +206,7 @@ void	graphics_init(t_mlx_data *mlx_data, char **map);
 char	*get_asset_file_name(int fd);
 void	init_textures_to_null(t_mlx_data *mlx_data);
 void	check_asset_file(t_mlx_data *mlx_data, char *file_name);
-void	loop_on_texture_files(t_mlx_data *mlx_data, int fd, \
+void	loop_on_texture_files(t_mlx_data *mlx_data, t_file_data file_data, \
 								int *width, int *height);
 void	load_textures(t_mlx_data *mlx_data);
 
@@ -205,6 +214,9 @@ void	load_textures(t_mlx_data *mlx_data);
 void	*switch_case_textures(t_mlx_data *mlx_data, int x, int y);
 void	render_textures(t_mlx_data *mlx_data);
 void	render_win_screen(t_mlx_data *mlx_data);
+
+/*  select_tile_size  */
+int		select_tile_size(char **map);
 
 /* ****************** */
 /*     INTERFACE      */
