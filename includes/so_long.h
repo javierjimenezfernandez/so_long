@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/14 21:57:32 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:32:31 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef enum e_error_type
 	open_file_error,
 	malloc_error,
 	invalid_map,
+	map_too_big,
 	mlx_error,
 	open_asset_file_error,
 	read_asset_file_error,
@@ -171,6 +172,7 @@ int		are_all_tiles_valid(char **map);
 /*  size_validation   */
 int		are_all_rows_equal_len(char **map);
 int		are_dimensions_valid(char **map);
+int		is_the_map_too_big(char **map);
 
 /*  walls_validation  */
 int		is_horizontal_border_valid(char *row);

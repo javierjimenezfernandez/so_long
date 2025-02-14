@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 21:07:16 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/14 22:02:54 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:33:57 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	error_handler(t_error_type error_type)
 		ft_putstr_fd("Malloc error.\n", 2);
 	else if (error_type == invalid_map)
 		ft_putstr_fd("Invalid map. Check map requirements in subject.\n", 2);
+	else if (error_type == map_too_big)
+		ft_putstr_fd("Map is valid, but too big it won't fit on screen.\n", 2);
 	exit(EXIT_FAILURE);
 }
 

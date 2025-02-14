@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:00 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/12 19:10:56 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:32:37 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int	main(int argc, char **argv)
 		{
 			free_map(map);
 			error_handler(invalid_map);
+		}
+		if (is_the_map_too_big(map))
+		{
+			free_map(map);
+			error_handler(map_too_big);
 		}
 		start_game(map);
 		free_map(map);
