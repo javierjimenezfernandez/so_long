@@ -76,6 +76,8 @@ DIR_DUP		= mkdir -p $(@D)
 CFLAGS 		+= -Wall -Wextra -Werror
 ARFLAGS		= -r -c -s
 
+DEBUG_FLAGS	= -I includes -Og
+
 ifeq ($(shell uname), Linux)
 	MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
 else
@@ -103,7 +105,7 @@ $(MLX_LIB):
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 			$(DIR_DUP)
-			$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
+			$(CC) $(DEBUG_FLAGS) -c $< -o $@ $(INCLUDES)
 
 clean:
 			make -C $(LIBFT_DIR) clean

@@ -103,6 +103,8 @@ DIR_DUP		= mkdir -p $(@D)
 CFLAGS 		+= -Wall -Wextra -Werror -I includes
 ARFLAGS		= -r -c -s
 
+DEBUG_FLAGS	= -I includes -Og
+
 # Rule name protection
 .PHONY:		all clean fclean re
 
@@ -114,7 +116,7 @@ $(NAME):	$(OBJ) $(INCLUDES)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 			$(DIR_DUP)
-			$(CC) $(CFLAGS) -c $< -o $@
+			$(CC) $(DEBUG_FLAGS) -c $< -o $@
 
 clean:
 			$(RM) $(OBJ_DIR)
