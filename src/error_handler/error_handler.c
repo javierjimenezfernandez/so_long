@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 21:07:16 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/14 22:33:57 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:01:44 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	in_game_error_handler(t_error_type error_type, char *error_info)
 	ft_putstr_fd("Error\n", 2);
 	if (error_type == mlx_error)
 		ft_putstr_fd("MLX graphics failed.\n", 2);
-	else if (error_type == open_asset_file_error)
+	else if (error_type == open_assets_file_list_error)
 		ft_putstr_fd("Could not open: ", 2);
-	else if (error_type == read_asset_file_error)
+	else if (error_type == read_assets_file_list_error)
 		ft_putstr_fd("Error while reading: ", 2);
-	else if (error_type == open_current_asset_file_error)
+	else if (error_type == open_asset_error)
 		ft_putstr_fd("Could not open the asset file: ", 2);
 	ft_putstr_fd("\"", 2);
 	ft_putstr_fd(error_info, 2);

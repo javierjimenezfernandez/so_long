@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:03:12 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/14 22:32:31 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:10:24 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ typedef enum e_error_type
 	invalid_map,
 	map_too_big,
 	mlx_error,
-	open_asset_file_error,
-	read_asset_file_error,
-	open_current_asset_file_error
+	open_assets_file_list_error,
+	read_assets_file_list_error,
+	open_asset_error
 }		t_error_type;
 
 typedef enum e_tile_type
@@ -205,11 +205,11 @@ void	start_game(char **map);
 void	graphics_init(t_mlx_data *mlx_data, char **map);
 
 /*   load_textures    */
-char	*get_asset_file_name(int fd);
+char	*parse_asset_name(int fd);
 void	init_textures_to_null(t_mlx_data *mlx_data);
-void	check_asset_file(t_mlx_data *mlx_data, char *file_name);
-void	loop_on_texture_files(t_mlx_data *mlx_data, t_file_data file_data, \
-								int *width, int *height);
+char	*get_asset_name(t_mlx_data *mlx_data, t_file_data assets_file_list);
+void	loop_on_textures(t_mlx_data *mlx_data, t_file_data assets_file_list, \
+							int *width, int *height);
 void	load_textures(t_mlx_data *mlx_data);
 
 /*  render_textures   */
