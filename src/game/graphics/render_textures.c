@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:37:35 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/14 21:38:16 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/16 17:33:18 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	render_win_screen(t_mlx_data *mlx_data)
 	int		tile_size;
 	int		width;
 	int		height;
-	char	*file_name;
 
 	tile_size = select_tile_size(mlx_data->map);
 	width = 2.5 * tile_size;
