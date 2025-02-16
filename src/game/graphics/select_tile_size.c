@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_map.c                                        :+:      :+:    :+:   */
+/*   select_tile_size.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 10:35:13 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/12 18:48:29 by javjimen         ###   ########.fr       */
+/*   Created: 2025/02/14 21:02:18 by javjimen          #+#    #+#             */
+/*   Updated: 2025/02/14 21:37:36 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	print_map(char **map)
+int	select_tile_size(char **map)
 {
-	int	i;
-
-	i = 0;
-	while (map[i] != NULL)
-	{
-		if (ft_printf(map[i]) == -1)
-			return (-1);
-		i++;
-	}
-	return (0);
+	if ((2 * TILE_SIZE * (row_len(*(map)) + 2) > SCREEN_RES_WIDTH) \
+	|| (2 * TILE_SIZE * (count_map_rows(map) + 10) > SCREEN_RES_HEIGHT))
+		return (TILE_SIZE);
+	else
+		return (2 * TILE_SIZE);
 }

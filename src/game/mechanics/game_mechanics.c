@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   game_mechanics.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 20:03:00 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/14 22:32:37 by javjimen         ###   ########.fr       */
+/*   Created: 2024/12/29 18:56:24 by javjimen          #+#    #+#             */
+/*   Updated: 2025/02/01 21:32:16 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+int	is_movement_key(int keysym)
 {
-	char	**map;
-
-	if (argc != 2)
-		error_handler(wrong_usage);
-	if (is_file_name_valid(argv[1]))
-	{
-		map = parse_map(argv[1]);
-		if (!is_map_valid(map))
-		{
-			free_map(map);
-			error_handler(invalid_map);
-		}
-		if (is_the_map_too_big(map))
-		{
-			free_map(map);
-			error_handler(map_too_big);
-		}
-		start_game(map);
-		free_map(map);
-	}
+	if ((keysym == UP_KEY) || \
+		(keysym == LEFT_KEY) || \
+		(keysym == DOWN_KEY) || \
+		(keysym == RIGHT_KEY) || \
+		(keysym == W_KEY) || \
+		(keysym == A_KEY) || \
+		(keysym == S_KEY) || \
+		(keysym == D_KEY))
+		return (1);
 	else
-		error_handler(map_name_error);
-	return (0);
+		return (0);
+}
+
+void	game_mechanics(int keysym, t_mlx_data *mlx_data)
+{
+	if (is_movement_key(keysym))
+		apply_movement(keysym, mlx_data);
+	else
+		ft_printf("Not a valid key.\n");
 }

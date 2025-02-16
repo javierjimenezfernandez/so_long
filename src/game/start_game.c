@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_map.c                                        :+:      :+:    :+:   */
+/*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 10:35:13 by javjimen          #+#    #+#             */
-/*   Updated: 2025/02/12 18:48:29 by javjimen         ###   ########.fr       */
+/*   Created: 2024/11/14 14:08:13 by javjimen          #+#    #+#             */
+/*   Updated: 2025/02/12 19:38:49 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	print_map(char **map)
+void	start_game(char **map)
 {
-	int	i;
+	t_mlx_data	mlx_data;
 
-	i = 0;
-	while (map[i] != NULL)
-	{
-		if (ft_printf(map[i]) == -1)
-			return (-1);
-		i++;
-	}
-	return (0);
+	graphics_init(&mlx_data, map);
+	mlx_hook(mlx_data.win_ptr, KeyRelease, KeyReleaseMask, \
+				&on_keypress_hook, &mlx_data);
+	mlx_hook(mlx_data.win_ptr, DestroyNotify, StructureNotifyMask, \
+				&on_graphics_close_hook, &mlx_data);
+	mlx_data.game_state = started;
+	mlx_loop(mlx_data.mlx_ptr);
 }

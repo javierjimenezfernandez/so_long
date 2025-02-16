@@ -6,7 +6,7 @@
 /*   By: javjimen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:08:57 by javjimen          #+#    #+#             */
-/*   Updated: 2024/11/07 19:14:25 by javjimen         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:30:46 by javjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,15 @@ int	are_dimensions_valid(char **map)
 		else
 			return (0);
 	}
+	else
+		return (0);
+}
+
+int	is_the_map_too_big(char **map)
+{
+	if ((TILE_SIZE * (row_len(*(map)) + 2) > SCREEN_RES_WIDTH) \
+	|| (TILE_SIZE * (count_map_rows(map) + 10) > SCREEN_RES_HEIGHT))
+		return (1);
 	else
 		return (0);
 }
